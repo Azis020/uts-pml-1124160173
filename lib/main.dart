@@ -155,6 +155,22 @@ class ProfilePages extends StatelessWidget {
                               ),
                             ),
                             ),
+                            Divider(),
+                            InfoTile(
+                            icon: Icons.phone_iphone, 
+                            label: 'Mobile Development', 
+                            value: 'Flutter & Dart',
+                            ),
+                            InfoTile(
+                            icon: Icons.web, 
+                            label: 'Web Development', 
+                            value: 'PHP - SQL - CSS - Python',
+                            ),
+                            InfoTile(
+                            icon: Icons.sports_soccer_outlined, 
+                            label: 'Hobi', 
+                            value: 'Futsal & Badminton',
+                            ),
                         ],
                       ),
                       ),
