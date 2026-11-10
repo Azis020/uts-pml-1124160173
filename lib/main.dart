@@ -54,7 +54,20 @@ class ProfilePages extends StatelessWidget {
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-
+                children: [
+                  const SizedBox(height: 20),
+                  const CircleAvatar(
+                    radius: 50,
+                    child: Text(
+                      'AZ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                    ),
+                  ),
+                ],
             ),
           ),
         )
