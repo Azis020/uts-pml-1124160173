@@ -38,7 +38,13 @@ class ProfilePages extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profil Mahasiswa'),
-
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, 
+          icon: const Icon(Icons.menu),
+          tooltip: 'Lainnya',
+          )
+        ],
       ),
     );
   }
