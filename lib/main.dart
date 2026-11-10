@@ -107,6 +107,28 @@ class ProfilePages extends StatelessWidget {
                               ),
                             ),
                             ),
+
+                            Divider(),
+                            InfoTile(
+                              icon: Icons.email_outlined, 
+                              label: 'Email', 
+                              value: 'nurazisgimnastiar@gmail.com',
+                              ),
+                            InfoTile(
+                              icon: Icons.phone_outlined, 
+                              label: 'Nomor HP', 
+                              value: '0895714243205',
+                              ),
+                            InfoTile(
+                              icon: Icons.class_outlined, 
+                              label: 'Kelas', 
+                              value: 'Software Engineering Shift',
+                              ),
+                            InfoTile(
+                              icon: Icons.code, 
+                              label: 'Akun Github', 
+                              value: 'https://github.com/Azis020',
+                              ),
                         ],
                       ),
                       ),
