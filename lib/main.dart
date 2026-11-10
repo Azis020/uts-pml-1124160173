@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        colorSchemeSeed: Colors.blue
+        colorSchemeSeed: Colors.blue,
       ),
 
       themeMode: ThemeMode.system,
@@ -40,14 +40,25 @@ class ProfilePages extends StatelessWidget {
         title: const Text('Profil Mahasiswa'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, 
-          icon: const Icon(Icons.menu),
-          tooltip: 'Lainnya',
-          )
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu),
+            tooltip: 'Lainnya',
+          ),
         ],
+      ),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+
+            ),
+          ),
+        )
       ),
     );
   }
 }
-
-
