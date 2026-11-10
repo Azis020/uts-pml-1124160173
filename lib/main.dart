@@ -56,7 +56,7 @@ class ProfilePages extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 50,
                     child: Text(
                       'AZ',
@@ -67,6 +67,24 @@ class ProfilePages extends StatelessWidget {
                     ),
                     ),
                   ),
+
+                    const SizedBox(height: 16),
+                    Text('Nur Azis Gimnastiar',
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 8),
+                    Text('NIM: 1124160173',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    const SizedBox(height: 4),
+                    Text('Software Engineering - Shift',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey,
+                      ),
+                    ),
                 ],
             ),
           ),
