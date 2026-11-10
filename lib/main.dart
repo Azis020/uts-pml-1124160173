@@ -10,7 +10,21 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Profil Nur Azis Gimnastiar',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        colorSchemeSeed: Colors.blue,
+        scaffoldBackgroundColor: Colors.grey[100],
+      ),
 
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorSchemeSeed: Colors.blue
+      ),
+
+      themeMode: ThemeMode.system,
     );
   }
 }
