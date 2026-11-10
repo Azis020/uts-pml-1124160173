@@ -87,6 +87,30 @@ class ProfilePages extends StatelessWidget {
                       ),
                     ),
 
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(12),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.0, top: 8.8, bottom: 4.0),
+                            child: Text(
+                              'Informasi Kontak',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            ),
+                        ],
+                      ),
+                      ),
+                  ),
                 ],
             ),
           ),
