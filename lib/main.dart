@@ -25,6 +25,18 @@ class MainApp extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
+      home: const ProfilePages(),
     );
   }
 }
+
+class ProfilePages extends StatelessWidget {
+  const ProfilePages({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+  }
+}
+
+
