@@ -190,6 +190,8 @@ class ProfilePages extends StatelessWidget {
               ),
               );
         },
+        child: const Icon(Icons.thumb_up),
+        tooltip: 'Beri Reaksi',
         ),
     );
   }
