@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
-    imagePath: 'assets/images/profile.jpeg',
+    imagePath: 'images/profile.jpeg',
   );
 
   // [BARU] Fungsi navigasi ke halaman EditProfil & menerima data kembali
@@ -48,7 +48,13 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
-
+        // [BARU] Tombol di AppBar untuk menguji perpindahan ke Edit
+        actions: [
+          IconButton(
+            onPressed: _navigateToEdit,
+            icon: const Icon(Icons.edit),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
