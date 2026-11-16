@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
 import 'edit_profile.dart';
-import 'about_page.dart'; // [BARU] Import halaman Tentang Saya
+import 'about_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -11,7 +11,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  // [DIUBAH] Menghapus kata 'final' agar data profil bisa diperbarui
   Profile _profile = Profile(
     name: 'Nur Azis Gimnastiar',
     nim: '1124160173',
@@ -21,10 +20,9 @@ class _ProfilePageState extends State<ProfilePage> {
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
-    imagePath: 'images/profile.jpeg',
+    imagePath: 'assets/images/profile.jpg',
   );
 
-  // [BARU] Fungsi navigasi ke halaman EditProfil & menerima data kembali
   Future<void> _navigateToEdit() async {
     final dataBaru = await Navigator.push<Profile>(
       context,
@@ -49,13 +47,57 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
-        // [BARU] Tombol di AppBar untuk menguji perpindahan ke Edit
-        actions: [
-          IconButton(
-            onPressed: _navigateToEdit,
-            icon: const Icon(Icons.edit),
-          ),
-        ],
+      ),
+      // [BARU] Menambahkan Drawer navigasi menu
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    _profile.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'NIM: ${_profile.nim}',
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil'),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('Tentang Saya'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
@@ -187,6 +229,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
+
     );
   }
 }
