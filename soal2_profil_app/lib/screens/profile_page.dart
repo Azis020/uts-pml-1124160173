@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
-    imagePath: 'assets/images/profile.jpg',
+    imagePath: 'images/profile.jpeg',
   );
 
   Future<void> _navigateToEdit() async {
@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         centerTitle: true,
       ),
-      // [BARU] Menambahkan Drawer navigasi menu
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -72,10 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(height: 4),
                   Text(
                     'NIM: ${_profile.nim}',
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 13,
-                    ),
+                    style: const TextStyle(color: Colors.white70, fontSize: 13),
                   ),
                 ],
               ),
@@ -113,26 +110,23 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 18),
               Text(
                 _profile.name,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.3,
-                    ),
+                style: Theme.of(context).textTheme.headlineSmall
+                    ?.copyWith(fontWeight: FontWeight.bold, letterSpacing: 0.3),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 6),
               Text(
                 'NIM: ${_profile.nim}',
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 4),
               Text(
                 'Program Studi: ${_profile.major} • Kelas: ${_profile.classRoom}',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.grey,
-                    ),
+                style: Theme.of(context).textTheme.bodyMedium
+                    ?.copyWith(color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 12),
@@ -141,9 +135,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Text(
                   _profile.bio,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        height: 1.4,
-                      ),
+                  style: Theme.of(context).textTheme.bodyMedium
+                      ?.copyWith(height: 1.4),
                 ),
               ),
               const SizedBox(height: 24),
@@ -229,7 +222,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
-
+      // [BARU] Menambahkan FloatingActionButton untuk mengedit profil
+      floatingActionButton: FloatingActionButton(
+        onPressed: _navigateToEdit,
+        child: const Icon(Icons.edit),
+      ),
     );
   }
 }
