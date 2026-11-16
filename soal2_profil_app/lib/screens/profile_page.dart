@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
-import 'edit_profile.dart'; // [BARU] Import halaman edit
+import 'edit_profile.dart';
+import 'about_page.dart'; // [BARU] Import halaman Tentang Saya
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
