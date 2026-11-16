@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
-import 'edit_profile.dart';
+import 'edit_profile.dart'; // [BARU] Import halaman edit
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,7 +10,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final Profile _profile = Profile(
+  // [DIUBAH] Menghapus kata 'final' agar data profil bisa diperbarui
+  Profile _profile = Profile(
     name: 'Nur Azis Gimnastiar',
     nim: '1124160173',
     major: 'Software Engineering',
@@ -19,15 +20,35 @@ class _ProfilePageState extends State<ProfilePage> {
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
-    imagePath: 'images/profile.jpeg',
+    imagePath: 'assets/images/profile.jpeg',
   );
+
+  // [BARU] Fungsi navigasi ke halaman EditProfil & menerima data kembali
+  Future<void> _navigateToEdit() async {
+    final dataBaru = await Navigator.push<Profile>(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditProfilePage(profile: _profile),
+      ),
+    );
+
+    if (dataBaru != null) {
+      setState(() {
+        _profile = dataBaru;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil', style: TextStyle(fontWeight: FontWeight.w600)),
+        title: const Text(
+          'Profil',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
         centerTitle: true,
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
@@ -37,24 +58,122 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               CircleAvatar(
                 radius: 60,
+                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
                 backgroundImage: AssetImage(_profile.imagePath),
               ),
               const SizedBox(height: 18),
-              Text(_profile.name, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
+              Text(
+                _profile.name,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.3,
+                    ),
+                textAlign: TextAlign.center,
+              ),
               const SizedBox(height: 6),
-              Text('NIM: ${_profile.nim}', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w600)),
+              Text(
+                'NIM: ${_profile.nim}',
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
               const SizedBox(height: 4),
-              Text('Program Studi: ${_profile.major} • Kelas: ${_profile.classRoom}', style: const TextStyle(color: Colors.grey)),
+              Text(
+                'Program Studi: ${_profile.major} • Kelas: ${_profile.classRoom}',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Colors.grey,
+                    ),
+                textAlign: TextAlign.center,
+              ),
               const SizedBox(height: 12),
-              Text(_profile.bio, textAlign: TextAlign.center),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  _profile.bio,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        height: 1.4,
+                      ),
+                ),
+              ),
               const SizedBox(height: 24),
               Card(
-                child: Column(
-                  children: [
-                    ListTile(leading: const Icon(Icons.email), title: const Text('Email'), subtitle: Text(_profile.email)),
-                    ListTile(leading: const Icon(Icons.phone), title: const Text('Nomor HP'), subtitle: Text(_profile.phone)),
-                    ListTile(leading: const Icon(Icons.code), title: const Text('Akun GitHub'), subtitle: Text(_profile.github)),
-                  ],
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Icon(
+                          Icons.email,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text(
+                          'Email',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        subtitle: Text(
+                          _profile.email,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const Divider(height: 1, indent: 16, endIndent: 16),
+                      ListTile(
+                        leading: Icon(
+                          Icons.phone,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text(
+                          'Nomor HP',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        subtitle: Text(
+                          _profile.phone,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const Divider(height: 1, indent: 16, endIndent: 16),
+                      ListTile(
+                        leading: Icon(
+                          Icons.code,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        title: const Text(
+                          'Akun GitHub',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        subtitle: Text(
+                          _profile.github,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
