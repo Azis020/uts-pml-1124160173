@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/profile.dart';
+import 'edit_profile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -18,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
-    imagePath: 'images/profile.jpeg', // Path aset bersih
+    imagePath: 'images/profile.jpeg',
   );
 
   @override
