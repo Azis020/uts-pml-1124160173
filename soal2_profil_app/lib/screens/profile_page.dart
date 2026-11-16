@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     nim: '1124160173',
     major: 'Software Engineering',
     classRoom: 'Shift',
-    bio: 'Mahasiswa Semester 5 yang aktif belajar pengembangan aplikasi.',
+    bio: '',
     email: 'nurazisgimnastiar@gmail.com',
     phone: '0895714243205',
     github: 'https://github.com/Azis020',
